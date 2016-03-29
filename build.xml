@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE project>
+<project name="workspace-copy-creator" default="all">
+
+	<dirname property="antfile.dir" file="${ant.file}" />
+	<property file="${antfile.dir}/build.properties" />
+
+	<target name="clean">
+		<delete dir="${workspace.dest}" />
+	</target>
+
+	<target name="init">
+		<mkdir dir="${workspace.dest}" />
+
+		<copy todir="${workspace.dest}" verbose="true">
+			<fileset dir="${workspace.src}" />
+		</copy>
+
+	</target>
+
+	<target name="all" depends="clean,init" />
+
+</project>
